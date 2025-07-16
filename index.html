@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Issue Reporting - Auto Location</title>
+</head>
+<body>
+  <h2>Please wait... capturing your location</h2>
+
+  <script>
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+
+      // Your actual Google Form URL
+      var formUrl = "https://forms.gle/x1MEEaAQHy67miZd6";
+
+      // Final URL with GPS autofill
+      var redirectUrl = `${formUrl}?entry.916933707=${lat}&entry.1827906990=${lon}`;
+
+      // Redirect to the pre-filled form
+      window.location.href = redirectUrl;
+
+    }, function(error) {
+      alert("Could not access your location. Please allow location access and try again.");
+    });
+  </script>
+</body>
+</html>
